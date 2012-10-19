@@ -1,0 +1,14 @@
+.project
+*/.project
+.classpath
+.cache
+.buildpath
+.settings
+.metadata
+target
+*.iml
+*.ipr
+*.iws
+pom.xml
+src/main/resources/META-INF/config/local/*.properties
+nohup.out
