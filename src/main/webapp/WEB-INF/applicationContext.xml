@@ -1,0 +1,28 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+    <context:component-scan base-package="com.aifang.service" />
+
+    <bean id="segmentProps" class="com.aifang.ajf.spring.ConfigPropertiesFactoryBean">
+        <property name="name" value="segment" />
+    </bean>
+
+    <bean id="onlineSegmenter" class="com.aifang.service.nlp.segment.StanfordChineseOnlineSegmenter" destroy-method="destory">
+        <property name="props" ref="segmentProps"></property>
+    </bean>
+
+    <bean id="offlineSegmenter" class="com.aifang.service.nlp.segment.StanfordChineseOfflineSegmenter" destroy-method="destory">
+        <property name="props" ref="segmentProps"></property>
+    </bean>
+
+    <bean id="chineseDictTrainer" class="com.aifang.service.nlp.train.dict.ChineseDictTrainer">
+          <property name="props" ref="segmentProps"></property>
+    </bean>
+
+    <bean id="ctbClassifyTrainer" class="com.aifang.service.nlp.train.classify.CTBClassifyTrainer">
+        <property name="props" ref="segmentProps"></property>
+    </bean>
+
+</beans>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5">
+
+    <display-name>service-segment</display-name>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>character-encoding</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>character-encoding</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
+
+<!--     <servlet> -->
+<!--         <servlet-name>ctbseg</servlet-name> -->
+<!--         <servlet-class>com.aifang.service.servlet.CtbServlet</servlet-class> -->
+
+<!--         <init-param> -->
+<!--             <description>单个汉字词典位置</description> -->
+<!--             <param-name>sighanCorporaDict</param-name> -->
+<!--             <param-value>data</param-value> -->
+<!--         </init-param> -->
+
+<!--         <init-param> -->
+<!--             <description>分词的词典</description> -->
+<!--             <param-name>serDictionary</param-name> -->
+<!--             <param-value>data/aifang-chris.ser.gz,data/dict-chris8.ser.gz</param-value> -->
+<!--         </init-param> -->
+
+<!--         <init-param> -->
+<!--             <description>输入文本编码</description> -->
+<!--             <param-name>inputEncoding</param-name> -->
+<!--             <param-value>UTF-8</param-value> -->
+<!--         </init-param> -->
+
+<!--         <init-param> -->
+<!--             <description>单个汉字是否处理</description> -->
+<!--             <param-name>sighanPostProcessing</param-name> -->
+<!--             <param-value>true</param-value> -->
+<!--         </init-param> -->
+<!--         <init-param> -->
+<!--             <description>分类文件</description> -->
+<!--             <param-name>classifierFile</param-name> -->
+<!--             <param-value>data/ctb/ctb.gz</param-value> -->
+<!--             自己训练的 -->
+<!--             <param-value>data/aifang-ctb.ser.gz</param-value> -->
+<!--         </init-param> -->
+
+<!--         <load-on-startup>1</load-on-startup> -->
+<!--     </servlet> -->
+<!--     <servlet-mapping> -->
+<!--         <servlet-name>ctbseg</servlet-name> -->
+<!--         <url-pattern>/cs</url-pattern> -->
+<!--     </servlet-mapping> -->
+
+    <!-- 线上分词 -->
+    <servlet>
+        <servlet-name>onlineSeg</servlet-name>
+        <servlet-class>com.aifang.service.nlp.servlet.SegmentOnlineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>onlineSeg</servlet-name>
+        <url-pattern>/ons</url-pattern>
+    </servlet-mapping>
+
+    <!-- 线下分词 -->
+    <servlet>
+        <servlet-name>offlineSeg</servlet-name>
+        <servlet-class>com.aifang.service.nlp.servlet.SegmentOfflineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>offlineSeg</servlet-name>
+        <url-pattern>/offs</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>dictTrain</servlet-name>
+        <servlet-class>com.aifang.service.nlp.servlet.DictTrainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dictTrain</servlet-name>
+        <url-pattern>/dt</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>classifyTrain</servlet-name>
+        <servlet-class>com.aifang.service.nlp.servlet.ClassifyTrainServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>classifyTrain</servlet-name>
+        <url-pattern>/ct</url-pattern>
+    </servlet-mapping>
+
+</web-app>
