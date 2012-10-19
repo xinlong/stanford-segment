@@ -6,9 +6,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
-import com.aifang.ajf.util.ObjectUtils;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
+import com.xxl.util.ObjectUtils;
+
 
 /**
  * 语料库训练

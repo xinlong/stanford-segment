@@ -2,8 +2,8 @@ package com.xxl.service.nlp.train;
 
 import javax.annotation.Resource;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
 import com.xxl.service.nlp.segment.Segmenter;
 
 public abstract class AbstractTrainer implements Trainer {

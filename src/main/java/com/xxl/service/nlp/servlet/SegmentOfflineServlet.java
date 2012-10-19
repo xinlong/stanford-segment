@@ -7,9 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
-import com.aifang.ajf.util.StringUtils;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
+
 
 /**
  * 分词servlet
@@ -43,7 +43,7 @@ public class SegmentOfflineServlet extends ApplicationContextServlet {
         String text = req.getParameter("text");
 
         PrintWriter pw = resp.getWriter();
-        if (StringUtils.isNotBlank(text)) {
+        if (text!=null && text.trim()!="") {
 
             String result = getOfflineSegmenter().getSegmengString(text);
             pw.print(result);

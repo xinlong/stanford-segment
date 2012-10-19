@@ -6,8 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
 
 /**
  * 词典训练

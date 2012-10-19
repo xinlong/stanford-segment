@@ -4,16 +4,12 @@
     xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>com.aifang.build</groupId>
-        <artifactId>aifang-pom</artifactId>
-        <version>dev-SNAPSHOT</version>
-    </parent>
-
-    <groupId>com.aifang.service</groupId>
+    <groupId>com.xxl.service</groupId>
     <artifactId>service-segment</artifactId>
     <packaging>war</packaging>
     <name>service-segment</name>
+
+	<version>1.0</version>
 
     <build>
         <plugins>
@@ -29,50 +25,24 @@
     </build>
 
     <dependencies>
-        <dependency>
-            <groupId>com.aifang.ajf</groupId>
-            <artifactId>ajf-3rd</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aifang.ajf</groupId>
-            <artifactId>ajf-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aifang.ajf</groupId>
-            <artifactId>ajf-dal</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
         <!-- stanford segment -->
-        <dependency>
-          <groupId>edu.stanford</groupId>
-          <artifactId>nlp</artifactId>
-          <version>1.6.6</version>
-        </dependency>
+<!--         <dependency> -->
+<!--           <groupId>edu.stanford</groupId> -->
+<!--           <artifactId>nlp</artifactId> -->
+<!--           <version>1.6.6</version> -->
+<!--         </dependency> -->
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>common-logging</groupId>
-                    <artifactId>common-logging</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>spring</artifactId>
+            <version>2.5.6</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
+            <version>2.5.6</version>
             <scope>test</scope>
         </dependency>
 
@@ -90,10 +60,20 @@
             <scope>provided</scope>
         </dependency>
 
+		<dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.5.6</version>
+        </dependency>
         <dependency>
-            <groupId>org.codehaus.woodstox</groupId>
-            <artifactId>wstx-asl</artifactId>
-            <version>3.2.0</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.5.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.6</version>
         </dependency>
 
     </dependencies>

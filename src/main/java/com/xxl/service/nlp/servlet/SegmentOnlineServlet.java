@@ -7,9 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
-import com.aifang.ajf.util.StringUtils;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
 
 /**
  * 分词servlet
@@ -42,14 +41,14 @@ public class SegmentOnlineServlet extends ApplicationContextServlet {
         resp.setContentType("text/html; charset=utf-8");
         String text = req.getParameter("text");
         String reload = req.getParameter("reload");
-        if (StringUtils.isNotBlank(reload)) {
+        if (text!=null && text.trim()!="") {
             if ("true".equals(reload)) {
                 getOnlineSegmenter().reload();
             }
         }
 
         PrintWriter pw = resp.getWriter();
-        if (StringUtils.isNotBlank(text)) {
+        if (text!=null && text.trim()!="") {
             String result = getOnlineSegmenter().getSegmengString(text);
             pw.print(result);
             logger.info("Online segment origin:'%s',result:'%s'", text, result);

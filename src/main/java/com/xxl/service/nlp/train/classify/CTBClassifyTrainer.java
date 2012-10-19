@@ -6,10 +6,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Properties;
 
-import com.aifang.ajf.logging.Logger;
-import com.aifang.ajf.logging.LoggerFactory;
-import com.aifang.ajf.util.StringUtils;
+import com.xxl.logging.Logger;
+import com.xxl.logging.LoggerFactory;
 import com.xxl.service.nlp.train.AbstractTrainer;
+import com.xxl.util.StringUtils;
 
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreLabel;
